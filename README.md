@@ -1,59 +1,43 @@
-# CarouselApp
+# Infinite Carousel (Mobile)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.6.
+Mobile-only infinite carousel built with Angular 19. Includes swipe, autoplay, and simulated API loading. No third-party UI libraries are used.
 
-## Development server
+## Requirements
 
-To start a local development server, run:
+- Node.js 20+
+- npm 10+
 
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Install
 
 ```bash
-ng generate component component-name
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Run (development)
 
 ```bash
-ng generate --help
+npm start
 ```
 
-## Building
+Open `http://localhost:4200/`.
 
-To build the project run:
+## Build (production)
 
 ```bash
-ng build
+npm run build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Build output: `dist/carousel-app/`.
 
-## Running unit tests
+## Project structure
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- `src/app/components/carousel/` — infinite loop + swipe + autoplay
+- `src/app/components/carousel-slide/` — slide UI
+- `src/app/services/slides.service.ts` — slide data + simulated API delay
+- `src/app/styles/_variables.scss` — theme tokens
+- `public/` — assets + favicon
 
-```bash
-ng test
-```
+## Notes
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Autoplay runs every 10 seconds and pauses during drag.
+- Vertical scrolling is blocked on the carousel screen to ensure reliable swipe.
