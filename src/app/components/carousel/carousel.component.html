@@ -1,0 +1,23 @@
+@if (loading()) {
+<div class="carousel-loading">
+  <div class="carousel-loading__spinner"></div>
+  <p class="carousel-loading__text">Loading...</p>
+</div>
+} @else {
+<div #container class="carousel" appCarouselGesture [swipeThresholdPx]="swipeThreshold" (dragStart)="onDragStart()"
+  (dragMove)="onDragMove($event)" (dragEnd)="onDragEnd()" (swipe)="onSwipe($event)">
+  <div #track class="carousel__track" [class.carousel__track--no-transition]="transitionDisabled()"
+    [style.transform]="trackTransform()" (transitionend)="onTransitionEnd()">
+    @for (slide of displaySlides(); track $index) {
+    <app-carousel-slide [slide]="slide" />
+    }
+  </div>
+
+  <div class="carousel__dots">
+    @for (slide of slides(); track slide.id; let i = $index) {
+    <button class="carousel__dot" [class.carousel__dot--active]="realSlideIndex() === i" (click)="goToSlide(i + 1)"
+      [attr.aria-label]="'Go to slide ' + (i + 1)" type="button"></button>
+    }
+  </div>
+</div>
+}

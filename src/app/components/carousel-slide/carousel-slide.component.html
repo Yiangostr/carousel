@@ -1,0 +1,16 @@
+<div class="slide" [style.backgroundImage]="'url(' + slide.bgImageUrl + ')'"
+  [style.backgroundSize]="slide.bgSize || null" [style.backgroundPosition]="slide.bgPosition || null">
+  <div class="slide__content">
+    <img [src]="slide.mainImageUrl" [alt]="slide.title" class="slide__image" />
+    <h2 class="slide__title" [class.slide__title--single-line]="slide.titleSingleLine">
+      {{ slide.title }}
+    </h2>
+    <p class="slide__text" [class.slide__text--single-line]="slide.textSingleLine">
+      {{ formattedText.before }}<span class="slide__highlight">{{ formattedText.highlight }}</span>{{
+      formattedText.after }}
+    </p>
+    <button class="slide__cta" type="button">
+      {{ slide.ctaLabel }}
+    </button>
+  </div>
+</div>

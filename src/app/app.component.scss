@@ -1,0 +1,8 @@
+@use "./styles/variables" as *;
+
+:host {
+  display: block;
+  width: 100%;
+  min-height: $viewport-height;
+  min-height: $viewport-height-dvh;
+}

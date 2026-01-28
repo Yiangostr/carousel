@@ -1,0 +1,94 @@
+@use "../../styles/variables" as *;
+
+.slide {
+  width: 100vw;
+  min-height: $viewport-height;
+  min-height: $viewport-height-dvh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: $spacing-lg;
+  padding-bottom: $spacing-2xl;
+  box-sizing: border-box;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: $color-text;
+    font-family: $font-family-base;
+  }
+
+  &__image {
+    max-width: $slide-image-max-width;
+    max-height: $slide-image-max-height;
+    height: auto;
+    margin-bottom: $spacing-lg;
+    object-fit: contain;
+  }
+
+  &__title {
+    font-size: $font-size-title;
+    font-weight: $font-weight-extrabold;
+    font-style: italic;
+    margin: 0;
+    text-shadow: $shadow-text;
+    letter-spacing: $title-letter-spacing;
+    line-height: $line-height-tight;
+    white-space: pre-line;
+
+    &--single-line {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: $font-size-title-single-line;
+    }
+  }
+
+  &__text {
+    font-size: $font-size-body;
+    font-weight: $font-weight-semibold;
+    margin: 0 0 $spacing-xl;
+    line-height: $line-height-base;
+    max-width: 90%;
+    text-align: center;
+
+    &--single-line {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: $font-size-text-single-line;
+    }
+  }
+
+  &__highlight {
+    color: $color-highlight;
+    font-weight: $font-weight-bold;
+    font-style: italic;
+  }
+
+  &__cta {
+    background: transparent;
+    color: $color-text;
+    border: $button-border-width solid $color-text;
+    border-radius: $border-radius-pill;
+    padding: $button-padding-y $button-padding-x;
+    font-size: $font-size-body;
+    font-weight: $font-weight-semibold;
+    font-family: $font-family-base;
+    cursor: pointer;
+    min-height: $button-min-height;
+    min-width: $button-min-width;
+    transition: all $transition-duration-fast $transition-easing;
+    text-transform: capitalize;
+
+    &:active {
+      background: $color-text-15;
+      border-color: $color-text;
+    }
+  }
+}

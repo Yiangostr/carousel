@@ -1,0 +1,84 @@
+@use "../../styles/variables" as *;
+
+.carousel {
+  width: 100vw;
+  height: $viewport-height;
+  height: $viewport-height-dvh;
+  overflow: hidden;
+  position: relative;
+  touch-action: none;
+  overscroll-behavior: none;
+  user-select: none;
+
+  &__track {
+    display: flex;
+    height: 100%;
+    will-change: transform;
+    transition: transform $carousel-transition-duration $transition-easing;
+
+    &--no-transition {
+      transition: none;
+    }
+  }
+
+  &__dots {
+    position: absolute;
+    bottom: $spacing-xl;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: $carousel-dot-gap;
+    z-index: 10;
+  }
+
+  &__dot {
+    width: $carousel-dot-size;
+    height: $carousel-dot-size;
+    border-radius: 50%;
+    border: none;
+    background: $color-text-40;
+    cursor: pointer;
+    padding: 0;
+    transition: all $transition-duration-fast $transition-easing;
+
+    &--active {
+      background: $color-text;
+      transform: scale(1.25);
+    }
+  }
+}
+
+.carousel-loading {
+  width: 100vw;
+  height: $viewport-height;
+  height: $viewport-height-dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, $color-background-accent 0%, $color-background 100%);
+  color: $color-text;
+  font-family: $font-family-base;
+
+  &__spinner {
+    width: $spinner-size;
+    height: $spinner-size;
+    border: $border-width-thick solid $color-text-20;
+    border-top-color: $color-highlight;
+    border-radius: 50%;
+    animation: spin $spinner-rotation-duration linear infinite;
+  }
+
+  &__text {
+    margin-top: $spacing-md;
+    font-size: $font-size-body;
+    font-weight: $font-weight-medium;
+    opacity: $loading-text-opacity;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
